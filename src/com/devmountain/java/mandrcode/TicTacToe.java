@@ -14,20 +14,24 @@ public class TicTacToe {
 //prints out game board
 		printGameBoard(gameBoard);
 
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter your placement(1-9):");
-		int pos = scan.nextInt();
-		System.out.println(pos);
+		//to make this all keep running and listening continuously to a user we often add a while true statment
 
-		placePiece(gameBoard, pos, "player");
 
-		//could use AI but for simplicity using randomizer
-		Random random = new Random();
-		int cpuPosition = random.nextInt(9)+1;
-		placePiece(gameBoard, cpuPosition, "cpu");
+		while (true) {
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Enter your placement(1-9):");
+			int playerPos = scan.nextInt();
 
-		printGameBoard(gameBoard);
 
+			placePiece(gameBoard, playerPos, "player");
+
+			//could use AI but for simplicity using randomizer
+			Random random = new Random();
+			int cpuPosition = random.nextInt(9) + 1;
+			placePiece(gameBoard, cpuPosition, "cpu");
+
+			printGameBoard(gameBoard);
+		}
     }
 	    public static void printGameBoard(char[] [] gameBoard){
 		for (char[] row : gameBoard){
