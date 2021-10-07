@@ -1,5 +1,6 @@
 package com.devmountain.java.mandrcode;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -19,6 +20,11 @@ public class TicTacToe {
 		System.out.println(pos);
 
 		placePiece(gameBoard, pos, "player");
+
+		//could use AI but for simplicity using randomizer
+		Random random = new Random();
+		int cpuPosition = random.nextInt(9)+1;
+		placePiece(gameBoard, cpuPosition, "cpu");
 
 		printGameBoard(gameBoard);
 
